@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
+import { AuthService } from '../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+user: User = new User
+confirmarSenha: string
+tipoUsuario: string
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  constructor(
+private authService: AuthService,
+private router: Router
+  ) { }
 
+  ngOnInit(){
+window.scroll(0,0)
+}
+confirmSenha(event:any){
+this.confirmarSenha=event.target.value
+}
 }
